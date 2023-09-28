@@ -37,6 +37,9 @@ server.post("/produto", (req, res) => {
   res.status(201).send(produto)
 });
 
+server.put
+server.pa
+
 server
   .listen({
     port,
