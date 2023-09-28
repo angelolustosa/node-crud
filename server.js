@@ -12,33 +12,40 @@ server.get("/", async (req, res) => {
   res.send("Servidor no ar!");
 });
 
-server.get('/produtos', (req, res) => {
-    let produtos = db.listarTodos()
-    return res.status(200).send({
-        size: produtos.length,
-        data: produtos
-    })
-})
+server.get("/produtos", (req, res) => {
+  let produtos = db.listarTodos();
+  return res.status(200).send({
+    size: produtos.length,
+    data: produtos,
+  });
+});
 
-server.get('/produto/:id', (req, res) => {
-    let idParam = req.params.id
+server.get("/produto/:id", (req, res) => {
+  let idParam = req.params.id;
 
-    let produto = db.listarPorId(idParam)
-    return res.status(200).send(produto)
-})
+  let produto = db.listarPorId(idParam);
+  return res.status(200).send(produto);
+});
 
 server.post("/produto", (req, res) => {
   let produto = {
     nome: "Nike",
     modelo: "Air Force",
     preco: 1400,
-  }
+  };
   db.adicionar(produto);
-  res.status(201).send(produto)
+  res.status(201).send(produto);
 });
 
-server.put
-server.pa
+server.put("/produto/:id", (req, res) => {
+  const { id } = req.params;
+  console.log('Objeto com os valores atualizados:', req.body);
+  const produtoComAtualizacao = req.body
+
+  let produtoAtualizado = db.atualizar(idParam, produtoComAtualizacao);
+
+  return res.status(200).send(produtoAtualizado)
+});
 
 server
   .listen({

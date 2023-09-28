@@ -8,3 +8,10 @@ GET http://localhost:5000/produto/92061508-5e91-48c6-bddb-6952e0e44a49
 
 ###
 PUT http://localhost:5000/produto/92061508-5e91-48c6-bddb-6952e0e44a49
+Content-Type: 'application/json'
+
+{
+    "nome": "Nike Atualizado",
+    "modelo": "Air Force 2",
+    "preco": 2800,
+}
