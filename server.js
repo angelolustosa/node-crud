@@ -37,15 +37,25 @@ server.post("/produto", (req, res) => {
   res.status(201).send(produto);
 });
 
-server.put("/produto/:id", (req, res) => {
+server.put("/produto/:id", async (req, res) => {
   const { id } = req.params;
   console.log('Objeto com os valores atualizados:', req.body);
   const produtoComAtualizacao = req.body
 
-  let produtoAtualizado = db.atualizar(idParam, produtoComAtualizacao);
+  let produtoAtualizado = db.atualizar(id, produtoComAtualizacao);
+
+  console.log('produtoAtualizado', produtoAtualizado);
 
   return res.status(200).send(produtoAtualizado)
 });
+
+server.delete('/produto/:id', (req, res) => {
+  const { id } = req.params;
+
+  const produto = db.excluir(id)
+
+  return res.status(200).send(produto)
+}) 
 
 server
   .listen({

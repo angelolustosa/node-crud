@@ -1,19 +1,7 @@
 import { randomUUID } from "crypto";
 
 export class DataBaseTemp {
-  produtos = [{
-    nome: "Nike",
-    modelo: "Air Force",
-    preco: 1400,
-  },{
-    nome: "Nike",
-    modelo: "Air Force",
-    preco: 1400,
-  },{
-    nome: "Nike",
-    modelo: "Air Force",
-    preco: 1400,
-  }];
+  produtos = [];
 
   adicionar = (produto) => {
     console.log('produto_antes', produto)
@@ -31,6 +19,7 @@ export class DataBaseTemp {
 
   atualizar = (idParam, produto) => {
     const produtoBD = this.listarPorId(idParam)
+    console.log('produtoBD', produtoBD);
 
     if(produtoBD) {
       produtoBD.nome = produto.nome
@@ -41,5 +30,8 @@ export class DataBaseTemp {
     return produtoBD
   };
 
-  excluir = () => {};
+  excluir = (idParam) => {
+    let indexProduto = this.produtos.findIndex(produto => produto.id === idParam )
+     return this.produtos.splice(indexProduto, 1)
+  };
 }

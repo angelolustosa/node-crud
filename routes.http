@@ -4,14 +4,17 @@ GET http://localhost:5000/produtos
 POST http://localhost:5000/produto
 
 ###
-GET http://localhost:5000/produto/92061508-5e91-48c6-bddb-6952e0e44a49
+GET http://localhost:5000/produto/cc0612d5-e6e3-40d4-ae7a-3519ac2344ce
 
 ###
-PUT http://localhost:5000/produto/92061508-5e91-48c6-bddb-6952e0e44a49
+PUT http://localhost:5000/produto/cc0612d5-e6e3-40d4-ae7a-3519ac2344ce
 Content-Type: 'application/json'
 
 {
     "nome": "Nike Atualizado",
     "modelo": "Air Force 2",
-    "preco": 2800,
+    "preco": 2800
 }
+
+###
+DELETE http://localhost:5000/produto/a8f3042f-54f6-40b5-9c59-d57c9adaf324
